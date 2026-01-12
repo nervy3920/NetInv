@@ -24,7 +24,7 @@
 
 1. **克隆仓库**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/nervy3920/NetInv.git
    cd network-asset-manager
    ```
 
@@ -39,7 +39,7 @@
    ```
 
 4. **访问系统**
-   打开浏览器访问 `http://localhost:3000`。
+   打开浏览器访问 `http://localhost:3008`。
    - **默认账号**：`admin`
    - **默认密码**：`admin`
 

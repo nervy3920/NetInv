@@ -49,7 +49,7 @@ export function AddSubGroupDialog({ parentId }: { parentId: number }) {
       setOpen(false);
       setName("");
       setIcon("Box");
-      setConfig([{ name: "", unit: "" }]);
+      setConfig([{ name: "", unit: "", icon: "Activity" }]);
     }
   };
 
