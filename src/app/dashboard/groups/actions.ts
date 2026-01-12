@@ -13,6 +13,7 @@ export async function addMainGroupAction(name: string, icon: string) {
     });
     await writeDb(db);
     revalidatePath("/dashboard/groups");
+    revalidatePath("/dashboard/assets/add");
     return { success: true };
   } catch (error) {
     console.error("Add main group error:", error);
@@ -32,6 +33,7 @@ export async function addSubGroupAction(parentId: number, name: string, icon: st
     });
     await writeDb(db);
     revalidatePath("/dashboard/groups");
+    revalidatePath("/dashboard/assets/add");
     return { success: true };
   } catch (error) {
     console.error("Add sub group error:", error);
@@ -47,6 +49,7 @@ export async function updateMainGroupAction(id: number, name: string, icon: stri
       db.mainGroups[index] = { ...db.mainGroups[index], name, icon };
       await writeDb(db);
       revalidatePath("/dashboard/groups");
+      revalidatePath("/dashboard/assets/add");
       return { success: true };
     }
     return { success: false, message: "分组不存在" };
@@ -81,6 +84,7 @@ export async function updateSubGroupAction(id: number, name: string, icon: strin
       await writeDb(db);
       revalidatePath("/dashboard/groups");
       revalidatePath("/dashboard/assets");
+      revalidatePath("/dashboard/assets/add");
       return { success: true };
     }
     return { success: false, message: "子分组不存在" };
@@ -108,6 +112,7 @@ export async function deleteMainGroupAction(id: number) {
     db.mainGroups = db.mainGroups.filter(g => g.id !== id);
     await writeDb(db);
     revalidatePath("/dashboard/groups");
+    revalidatePath("/dashboard/assets/add");
     return { success: true };
   } catch (error) {
     return { success: false, message: "删除失败" };
@@ -123,6 +128,7 @@ export async function deleteSubGroupAction(id: number) {
     await writeDb(db);
     revalidatePath("/dashboard/groups");
     revalidatePath("/dashboard/assets");
+    revalidatePath("/dashboard/assets/add");
     return { success: true };
   } catch (error) {
     return { success: false, message: "删除失败" };
@@ -155,6 +161,7 @@ export async function copyMainGroupAction(id: number) {
 
     await writeDb(db);
     revalidatePath("/dashboard/groups");
+    revalidatePath("/dashboard/assets/add");
     return { success: true };
   } catch (error) {
     console.error("Copy main group error:", error);
@@ -178,6 +185,7 @@ export async function copySubGroupAction(id: number) {
 
     await writeDb(db);
     revalidatePath("/dashboard/groups");
+    revalidatePath("/dashboard/assets/add");
     return { success: true };
   } catch (error) {
     console.error("Copy sub group error:", error);
